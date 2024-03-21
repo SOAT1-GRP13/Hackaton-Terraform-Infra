@@ -105,11 +105,10 @@ resource "aws_security_group" "ecs_sg" {
 # Task Definition
 ################################################################################
 
-//TODO pegar imagem real
 resource "aws_ecs_task_definition" "relatorio" {
   container_definitions = jsonencode([{
     essential = true,
-    image     = "christiandmelo/tech-challenge-soat1-grp13-producao:V1.0.23",
+    image     = "christiandmelo/hackathon-soat1-grp13-relatorio:V1.0.10",
     name      = "relatorio-api",
     portMappings = [
       {
@@ -128,12 +127,10 @@ resource "aws_ecs_task_definition" "relatorio" {
   requires_compatibilities = ["FARGATE"]
 }
 
-
-//TODO pegar imagem real
 resource "aws_ecs_task_definition" "ponto" {
   container_definitions = jsonencode([{
     essential = true,
-    image     = "christiandmelo/tech-challenge-soat1-grp13-produto:V1.0.38",
+    image     = "cchristiandmelo/hackathon-soat1-grp13-ponto:V1.0.7",
     name      = "ponto-api",
     portMappings = [
       {
@@ -155,7 +152,7 @@ resource "aws_ecs_task_definition" "ponto" {
 resource "aws_ecs_task_definition" "auth" {
   container_definitions = jsonencode([{
     essential = true,
-    image     = "christiandmelo/tech-challenge-soat1-grp13-auth:V1.0.22",
+    image     = "christiandmelo/hackathon-soat1-grp13-auth:V1.0.4",
     name      = "auth-api",
     portMappings = [
       {
