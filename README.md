@@ -1,10 +1,10 @@
-# Tech Challenge - SOAT1 - Grupo 13 - Terraform para criação da infra </h1>
+# Hackathon - SOAT1 - Grupo 13 - Terraform para criação da infra </h1>
 
 ![GitHub](https://img.shields.io/github/license/dropbox/dropbox-sdk-java)
 
 # Resumo do projeto
 
-O objetivo central deste projeto Terraform é estabelecer a infraestrutura na AWS para nossa fictícia rede de fast food. O projeto compreende vários módulos cuidadosamente projetados para atender às necessidades da aplicação.
+O objetivo central deste projeto Terraform é estabelecer a infraestrutura na AWS para nosso fictício controle de pontos. O projeto compreende vários módulos cuidadosamente projetados para atender às necessidades da aplicação.
 
 **Módulo de Rede**
 
@@ -22,12 +22,8 @@ No módulo de rede, criamos toda a infraestrutura necessária para a rede, inclu
 Este módulo é responsável por configurar o ambiente de banco de dados, que inclui:
 
 - **Security Group do RDS**: Regras de segurança para o banco de dados.
-- **RDS com PostgreSQL**: Configuração do banco de dados PostgreSQL.
+- **RDS com PostgreSQL**: Configuração do banco de dados PostgreSQL e sua replica de leitura.
 - **DynamoDB**: Nosso banco de dados NoSQL, que oferece alta escalabilidade e desempenho.
-
-**Módulo bastion**
-
-Aqui criamos uma instancia EC2 para servir de "jump server" nos permitindo conectar no banco de dados que está numa rede privada
 
 **Módulo lambda**
 
@@ -57,12 +53,9 @@ O módulo ECS é responsável por gerenciar a execução de nossa aplicação em
 - **Políticas e Funções (Roles)**: Permissões e funções necessárias para as operações do ECS.
 - **Definição de Tarefa (Task Definition)**: Configurações para a execução da aplicação.
 - **Serviço**: Responsável por manter as instâncias da aplicação em execução.
-
-Este projeto seguirá uma abordagem de entregas incrementais, e manteremos um controle detalhado de nosso progresso por meio de releases no repositório Git. Esperamos que este trabalho não apenas demonstre nosso conhecimento teórico e prático adquirido durante a pós-graduação, mas também sirva como um exemplo da aplicação das melhores práticas de arquitetura em projetos de software.
+- **ASG(Auto Scaling Group)**: Responsável por escalar horizontalmente nossa aplicação em horarios de pico.
 
 Estamos à disposição para qualquer dúvida ou sugestão que você possa ter. Agradecemos pelo seu interesse em nosso projeto!
-
-> :construction: Projeto em construção :construction:
 
 License: [MIT](License.txt)
 

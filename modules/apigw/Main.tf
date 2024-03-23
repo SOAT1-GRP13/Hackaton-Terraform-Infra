@@ -86,7 +86,7 @@ resource "aws_apigatewayv2_route" "relatorio_route" {
 resource "aws_apigatewayv2_route" "auth_route" {
   api_id             = aws_apigatewayv2_api.apigw_http_endpoint.id
   authorization_type = "NONE"
-  route_key          = "ANY /auth/{proxy+}"
+  route_key          = "ANY /Auth/{proxy+}"
   target             = "integrations/${aws_apigatewayv2_integration.apigw_integration.id}"
   depends_on         = [aws_apigatewayv2_integration.apigw_integration]
 }

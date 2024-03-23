@@ -9,6 +9,12 @@ resource "aws_security_group" "http" {
     protocol    = "TCP"
     to_port     = 80
   }
+    ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 8080
+    protocol    = "TCP"
+    to_port     = 8080
+  }
 }
 resource "aws_security_group" "https" {
   description = "Permit incoming HTTPS traffic"
@@ -45,6 +51,12 @@ resource "aws_security_group" "ingress_api" {
     from_port   = 80
     protocol    = "TCP"
     to_port     = 80
+  }
+    ingress {
+    cidr_blocks = ["0.0.0.0/0"]
+    from_port   = 8080
+    protocol    = "TCP"
+    to_port     = 8080
   }
   ingress {
     cidr_blocks = ["0.0.0.0/0"]
@@ -139,7 +151,7 @@ resource "aws_lb_target_group" "relatorio" {
 
 resource "aws_lb_target_group" "auth" {
   name        = "auth-tg"
-  port        = 80
+  port        = 8080
   protocol    = "HTTP"
   target_type = "ip"
   vpc_id      = var.vpc_id
@@ -187,7 +199,7 @@ resource "aws_lb_listener_rule" "auth" {
 
   condition {
     path_pattern {
-      values = ["/auth/*"]
+      values = ["/Auth/*"]
     }
   }
 }
