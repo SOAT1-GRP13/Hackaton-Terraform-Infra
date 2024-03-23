@@ -1,4 +1,4 @@
-# Tech Challenge - SOAT1 - Grupo 13 - Terraform para criação da infra </h1>
+# Hackathon - SOAT1 - Grupo 13 - Terraform para criação da infra </h1>
 
 ![GitHub](https://img.shields.io/github/license/dropbox/dropbox-sdk-java)
 
